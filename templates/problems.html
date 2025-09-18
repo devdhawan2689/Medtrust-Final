@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MedTrust • Problems & Diagnoses</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/medtrust.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand text-primary" href="#">MedTrust</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="dashboard">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="encounters">Encounters</a></li>
+        <li class="nav-item"><a class="nav-link" href="labs">Labs & Vitals</a></li>
+        <li class="nav-item"><a class="nav-link" href="meds">Medications</a></li>
+        <li class="nav-item"><a class="nav-link active" href="problems">Problems</a></li>
+        <li class="nav-item"><a class="nav-link" href="notes">Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="predictions">Predictions</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-success">Aadhaar verified</span>
+        <span class="text-muted small">Session: 30m</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid my-3">
+  <h5 class="mb-3">Problems & Diagnoses</h5>
+  <div class="card">
+    <div class="card-body table-responsive">
+      <table class="table table-sm align-middle">
+        <thead><tr><th>Problem</th><th>Status</th><th>ICD‑9</th><th>Canonical</th><th>Since</th></tr></thead>
+        <tbody>
+          <tr><td>Congestive heart failure</td><td><span class="badge bg-light text-dark border">active</span></td><td>428.0</td><td>UMLS:C0018801</td><td>2011‑03‑02</td></tr>
+          <tr><td>Diabetes mellitus</td><td><span class="badge bg-light text-dark border">active</span></td><td>250.00</td><td>UMLS:C0011849</td><td>2009‑06‑10</td></tr>
+        </tbody>
+      </table>
+      <div class="provenance">Source: diagnoses_icd; canonical via concept mapping</div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/medtrust.js"></script>
+</body>
+</html>

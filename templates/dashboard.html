@@ -1,1 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MedTrust • Patient Overview</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/medtrust.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand text-primary" href="#">MedTrust</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link active" href="dashboard">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="encounters">Encounters</a></li>
+        <li class="nav-item"><a class="nav-link" href="labs">Labs & Vitals</a></li>
+        <li class="nav-item"><a class="nav-link" href="meds">Medications</a></li>
+        <li class="nav-item"><a class="nav-link" href="problems">Problems</a></li>
+        <li class="nav-item"><a class="nav-link" href="notes">Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="predictions">Predictions</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-success">Aadhaar verified</span>
+        <span class="text-muted small">Session: 30m</span>
+      </div>
+    </div>
+  </div>
+</nav>
 
+<div class="container-fluid my-3">
+  <div class="patient-banner rounded-3 p-3 mb-3">
+    <div class="d-flex align-items-center justify-content-between">
+      <div>
+        <h5 class="mb-1">{{full_name}} • {{gender}} • {{dob}}</h5>
+        <div class="text-muted small">Subject: {{subject_id}} • MRN: — • Last admission: {{last_admission}}</div>
+      </div>
+      <div class="d-flex gap-2">
+        <a class="btn btn-outline-primary btn-sm" href="#">Download Summary</a>
+        <a class="btn btn-primary btn-sm" href="#">Add Note</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-xl-3 col-lg-4">
+      <div class="card">
+        <div class="card-header bg-white">Current status</div>
+        <div class="card-body">
+          <div class="mb-2"><span class="pill">Admission Type</span> {{admission_type}}</div>
+          <div class="mb-2"><span class="pill">ICU</span> {{ICU}}</div>
+          <div class="mb-2"><span class="pill">LOS</span> {{los}} days</div>
+          <div class="provenance">Source: admissions, icustays</div>
+        </div>
+      </div>
+
+      <div class="card mt-3">
+        <div class="card-header bg-white">Allergies</div>
+        <div class="card-body">
+          <span class="text-muted">No recorded allergies</span>
+          <div class="provenance mt-2">Source: notes/derived</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-9 col-lg-8">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between">
+              <span>Active problems</span>
+              <a class="small" href="problems.html">View all</a>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center py-1 border-bottom">
+                <div>Congestive heart failure <span class="badge bg-light text-dark border ms-2">active</span></div>
+                <span class="text-muted small">ICD9 428.0</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center py-1 border-bottom">
+                <div>Diabetes mellitus <span class="badge bg-light text-dark border ms-2">active</span></div>
+                <span class="text-muted small">ICD9 250.00</span>
+              </div>
+              <div class="provenance mt-2">Source: diagnoses_icd, problem_list</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between">
+              <span>Medications</span>
+              <a class="small" href="meds.html">View all</a>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center py-1 border-bottom">
+                <div>Metformin <span class="text-muted small">(PO)</span></div>
+                <span class="text-muted small">Last: 2012‑05‑19</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center py-1 border-bottom">
+                <div>Lisinopril <span class="text-muted small">(PO)</span></div>
+                <span class="text-muted small">Last: 2012‑05‑19</span>
+              </div>
+              <div class="provenance mt-2">Source: prescriptions</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between">
+              <span>Key labs & vitals (72h)</span>
+              <a class="small" href="labs.html">See details</a>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3 col-sm-6 mb-3">
+                  <div class="border rounded p-2">
+                    <div class="d-flex justify-content-between"><span>Creatinine</span><span class="text-danger">2.1</span></div>
+                    <div class="spark bg-light mt-2"></div>
+                    <div class="text-muted small">0.7–1.3 mg/dL</div>
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                  <div class="border rounded p-2">
+                    <div class="d-flex justify-content-between"><span>HR</span><span class="text-muted">88</span></div>
+                    <div class="spark bg-light mt-2"></div>
+                    <div class="text-muted small">60–100 bpm</div>
+                  </div>
+                </div>
+              </div>
+              <div class="provenance mt-2">Source: labevents, chartevents</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between">
+              <span>Comorbidity risk</span>
+              <a class="small" href="predictions.html">Model details</a>
+            </div>
+            <div class="card-body">
+              <div class="mb-2">
+                <div class="d-flex justify-content-between"><span>CKD</span><span class="text-muted small">72.4%</span></div>
+                <div class="progress" style="height:6px;"><div class="progress-bar bg-primary" style="width:72%"></div></div>
+                <div class="text-muted small mt-1">Top factors: creatinine↑, age, diabetes</div>
+              </div>
+              <div class="mb-2">
+                <div class="d-flex justify-content-between"><span>HF Readmission</span><span class="text-muted small">41.6%</span></div>
+                <div class="progress" style="height:6px;"><div class="progress-bar bg-primary" style="width:42%"></div></div>
+              </div>
+              <div class="provenance mt-2">Source: comorbidity service (v0.1)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header bg-white d-flex justify-content-between">
+              <span>Recent notes</span>
+              <a class="small" href="notes.html">Browse all</a>
+            </div>
+            <div class="card-body">
+              <div class="py-2 border-bottom">
+                <div class="d-flex justify-content-between"><strong>Discharge summary</strong><span class="text-muted small">2012‑05‑20</span></div>
+                <div class="text-muted small">Patient discharged in stable condition...</div>
+              </div>
+              <div class="provenance mt-2">Source: noteevents</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/medtrust.js"></script>
+</body>
+</html>

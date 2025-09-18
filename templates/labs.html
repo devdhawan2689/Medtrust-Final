@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MedTrust • Labs & Vitals</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/medtrust.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand text-primary" href="#">MedTrust</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="dashboard">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="encounters">Encounters</a></li>
+        <li class="nav-item"><a class="nav-link active" href="labs">Labs & Vitals</a></li>
+        <li class="nav-item"><a class="nav-link" href="meds">Medications</a></li>
+        <li class="nav-item"><a class="nav-link" href="problems">Problems</a></li>
+        <li class="nav-item"><a class="nav-link" href="notes">Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="predictions">Predictions</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-success">Aadhaar verified</span>
+        <span class="text-muted small">Session: 30m</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid my-3">
+  <h5 class="mb-3">Labs & Vitals</h5>
+
+  <form class="row g-2 mb-3">
+    <div class="col-md-3"><input class="form-control" name="q" placeholder="Test name (e.g., Creatinine)"></div>
+    <div class="col-md-3"><input class="form-control" type="date" name="start"></div>
+    <div class="col-md-3"><input class="form-control" type="date" name="end"></div>
+    <div class="col-md-2">
+      <select class="form-select" name="abnormal"><option value="">All</option><option value="1">Abnormal only</option></select>
+    </div>
+    <div class="col-md-1"><button class="btn btn-primary w-100">Filter</button></div>
+  </form>
+
+  <div class="card">
+    <div class="card-body table-responsive">
+      <table class="table table-sm align-middle">
+        <thead><tr><th>Item</th><th>Value</th><th>Units</th><th>Flag</th><th>When</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Creatinine</td><td class="text-danger">2.1</td><td>mg/dL</td><td>H</td><td>2012‑05‑19 08:10</td><td>labevents</td></tr>
+          <tr><td>Heart Rate</td><td>88</td><td>bpm</td><td>—</td><td>2012‑05‑19 08:10</td><td>chartevents</td></tr>
+        </tbody>
+      </table>
+      <nav><ul class="pagination pagination-sm"><li class="page-item active"><a class="page-link" href="#">1</a></li><li class="page-item"><a class="page-link" href="#">2</a></li></ul></nav>
+      <div class="provenance">Source: labevents, chartevents</div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/medtrust.js"></script>
+</body>
+</html>

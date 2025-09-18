@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MedTrust • Notes</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/medtrust.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand text-primary" href="#">MedTrust</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="dashboard">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="encounters">Encounters</a></li>
+        <li class="nav-item"><a class="nav-link" href="labs">Labs & Vitals</a></li>
+        <li class="nav-item"><a class="nav-link" href="meds">Medications</a></li>
+        <li class="nav-item"><a class="nav-link" href="problems">Problems</a></li>
+        <li class="nav-item"><a class="nav-link active" href="notes">Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="predictions">Predictions</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-success">Aadhaar verified</span>
+        <span class="text-muted small">Session: 30m</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid my-3">
+  <h5 class="mb-3">Notes</h5>
+
+  <form class="row g-2 mb-3">
+    <div class="col-md-6"><input class="form-control" name="q" placeholder="Search notes"></div>
+    <div class="col-md-3">
+      <select class="form-select" name="category">
+        <option>All categories</option><option>Discharge</option><option>Nursing</option><option>Physician</option>
+      </select>
+    </div>
+    <div class="col-md-2"><input class="form-control" type="date" name="start"></div>
+    <div class="col-md-1"><button class="btn btn-primary w-100">Filter</button></div>
+  </form>
+
+  <div class="card">
+    <div class="list-group list-group-flush">
+      <div class="list-group-item">
+        <div class="d-flex justify-content-between">
+          <div><strong>Discharge summary</strong> • CHF</div>
+          <div class="text-muted small">2012‑05‑20</div>
+        </div>
+        <div class="text-muted small">Patient discharged in stable condition with medication counseling…</div>
+        <div class="mt-2"><span class="pill">CHF</span> <span class="pill">Diabetes</span></div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="provenance">Source: noteevents</div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/medtrust.js"></script>
+</body>
+</html>

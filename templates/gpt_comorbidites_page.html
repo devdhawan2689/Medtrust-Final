@@ -1,0 +1,87 @@
+<!-- templates/table.html -->
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comorbidity Results</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #f7f9fc 0%, #eef2f7 100%);
+        min-height: 100vh;
+        padding: 32px 0;
+      }
+      .table-card {
+        border: 0;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+        background: #ffffff;
+      }
+      .table-card .card-header {
+        background: #0d6efd;
+        color: #fff;
+        padding: 18px 20px;
+      }
+      .table-responsive { max-height: 60vh; }
+      .table thead th {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: #f8f9fa;
+        border-bottom: 2px solid #e9ecef;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+      }
+      /* Ensure centering even if pandas adds inline styles */
+      .table th, .table td { text-align: center; vertical-align: middle; }
+    </style>
+  </head>
+  <body>
+    <div class="container-xxl">
+      <div class="page-header d-flex align-items-center justify-content-between mb-3">
+        <div>
+          <h1 class="h3 mb-1">MedTrust Analytics</h1>
+          <div class="text-muted">Comorbidity Prediction Results</div>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge text-bg-primary">Live</span>
+          <span class="badge text-bg-secondary">v1.0</span>
+        </div>
+      </div>
+
+      <div class="card table-card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <div>
+            <div class="h5 mb-0">Patient Cohort</div>
+            <div class="opacity-75 small">Predicted comorbidities and risk scores</div>
+          </div>
+          <a class="btn btn-light btn-sm" href="#" onclick="window.print()">Print</a>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            {{ table_html | safe }}
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="alert alert-warning mb-0 p-2 small text-center" role="alert">
+            ⚠️ Note: Data was retrieved from the GPT API due to server issues and may not be fully accurate.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
