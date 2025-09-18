@@ -1,1 +1,14 @@
-
+:root {
+  --brand: #0b5ed7;
+  --brand-2: #0a58ca;
+  --bg: #f6f8fb;
+  --card: #ffffff;
+}
+body { background: var(--bg); }
+.navbar-brand { font-weight: 600; letter-spacing: .2px; }
+.patient-banner { background: linear-gradient(90deg,#e9f2ff,#fff); border: 1px solid #e6eef8; }
+.card { border: 1px solid #e9eef5; }
+.badge-aadhaar { background: #198754; }
+.pill { border-radius: 999px; padding: .25rem .6rem; border: 1px solid #e6e6e6; background:#fff; font-size: .85rem; }
+.spark { height: 36px; }
+.provenance { font-size: .8rem; color: #6c757d; }
